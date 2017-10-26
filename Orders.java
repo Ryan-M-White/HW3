@@ -33,7 +33,6 @@ public class Orders {
 				System.out.println("That's not an option! Please try again.");
 				System.out.print("Do you want to order a Truck (T/t) or Car (C/c)? ");
 				sc.next();
-				//test
 			}
 			option = sc.next();
 
