@@ -4,7 +4,7 @@ public class Truck extends Vehicle {
     private String color;
     private double cost;
     private String truckSize;
-    private int engineSize;
+    private String engineSize;
 
 //constructors
 /** 
@@ -15,7 +15,7 @@ public Truck(){
     color = "Black";
     cost = 25000.50;
     truckSize = "Half-ton";
-    engineSize = 1500;
+    engineSize = "1500";
 }
 
 //methods
@@ -32,6 +32,14 @@ public Truck(){
         cost = _cost;
     }
 
+    public void setTruckSize(String _truckSize){
+        truckSize = _truckSize;
+    }
+
+    public void setEngineSize(String _engineSize){
+        engineSize = _engineSize;
+    }
+
     //getters
     public String getModel(){
         return model;
@@ -43,6 +51,14 @@ public Truck(){
 
     public Double getCost(){
         return cost;
+    }
+
+    public String getTruckSize(){
+        return truckSize;
+    }
+
+    public String getEngineSize(){
+        return engineSize;
     }
 
 }

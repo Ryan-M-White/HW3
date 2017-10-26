@@ -33,6 +33,14 @@ public Car(){
         cost = _cost;
     }
 
+    public void setCarType(String _carType){
+        carType = _carType;
+    }
+
+    public void setHasTowingPackage(Boolean _hasTowingPackage){
+        hasTowingPackage = _hasTowingPackage;
+    }
+
     //getters
     public String getModel(){
         return model;
@@ -44,6 +52,14 @@ public Car(){
 
     public Double getCost(){
         return cost;
+    }
+
+    public String getCarType(){
+        return carType;
+    }
+
+    public Boolean getTowingPackage(){
+        return hasTowingPackage;
     }
 
 }
