@@ -1,16 +1,26 @@
+/**
+ * Purpose:     This program prompts the user to enter information
+ * 				about a vehicle(s) they'd like to order<br>
+ *                                                    <br>
+ * Caveats:     Entering blatantly invalid information 
+ * 				to some of the prompts may break the program.<br>
+ * Date:        October 12th, 2017
+ * @author      Ryan White   
+ * @version     1.0
+ */
+
 /* Note: a lot of my comments are pseudocode for code
 		I haven't had the chance to write yet. Other than that
 		the program should work fine. */
-import java.util.Scanner;
+import java.util.*;
 public class Orders {
 	public static void main(String[] args) {
 		//declarations
 		boolean orderingInProcess = true;
-
-		//program
+		List<Vehicle> orderList = new ArrayList<Vehicle>();		
+      //program
 		System.out.println("Ryan White's Ordering System");
-
-
+		System.out.println("");		
 		while(orderingInProcess){
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Do you want to order a Truck (T/t) or Car (C/c)?");
@@ -25,9 +35,20 @@ public class Orders {
 				//for now we'll just call the Car constructor. Setters will be called later.
 				Car car = new Car();
 				//Entering Car Order:
-				//car.setModel()
-				//car.setColor()
-				//car.setCost()
+				System.out.print("Model: ");
+				String model = sc.next();
+				car.setModel(model);
+				System.out.print("Color: ");
+				String color = sc.next();
+				car.setColor(color);
+				System.out.print("Cost: ");				
+				while (!sc.hasNextDouble()) {
+					System.out.println("That's not a number! Please Try again.");
+					System.out.print("Cost: ");
+					sc.next();
+				}
+				Double cost = sc.nextDouble();
+				car.setCost(cost);
 				
 				// System.out.println("What type of Car is this?");
 				//choices
@@ -37,8 +58,9 @@ public class Orders {
 				//if statement for yes/no. inside statement, set hasTowingPackage
 
 				//save this order into an array
-
+				orderList.add(car);
 				//Ask if they want to make another order
+				System.out.println("");
 				System.out.println("Do you want to order another vehicle?");
 				while (!sc.hasNext("[yYnN]")) {
 					System.out.println("That's not an option! Please Try again.");
@@ -74,8 +96,9 @@ public class Orders {
 				//set type
 
 				//save this order into an array
-
+				orderList.add(truck);
 				//Ask if they want to make another order
+				System.out.println("");		
 				System.out.println("Do you want to order another vehicle?");
 				while (!sc.hasNext("[yYnN]")) {
 					System.out.println("That's not an option! Please Try again.");
@@ -103,10 +126,25 @@ public class Orders {
 
 		//For loop that iterates through the orders and prints their contents
 		
-			// for(vehicle : orders){
-			// 	vehicle.toString();
-			// }
-
+		for(Vehicle vehicle : orderList) {
+			if(vehicle instanceof Car){
+				Car myCar = (Car) vehicle;
+				System.out.println(myCar.getModel());
+				System.out.println(myCar.getColor());
+				System.out.println(myCar.getCost());
+			}
+			else if(vehicle instanceof Truck){
+				Truck myTruck = (Truck) vehicle;
+				System.out.println(myTruck.getModel());
+				System.out.println(myTruck.getColor());
+				System.out.println(myTruck.getCost());
+			} else{
+				System.out.println("Error: Object is neither a car nor a truck...");
+			}
+		}
+		System.out.println("");
+		System.out.println("");		
+		System.out.println("Thank you for using Ryan White's Ordering System");
 
 	}
 }

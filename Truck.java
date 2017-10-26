@@ -1,4 +1,4 @@
-public class Truck {
+public class Truck extends Vehicle {
 //attributes
     private String model;
     private String color;
@@ -7,10 +7,13 @@ public class Truck {
     private int engineSize;
 
 //constructors
+/** 
+* Default Constructor for Truck initializes the object with arbitrary values.
+*/
 public Truck(){
     model = "Ford";
     color = "Black";
-    cost = 25000.00;
+    cost = 25000.50;
     truckSize = "Half-ton";
     engineSize = 1500;
 }

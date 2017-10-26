@@ -1,4 +1,4 @@
-public class Car {
+public class Car extends Vehicle {
 //attributes
     private String model;
     private String color;
@@ -8,10 +8,13 @@ public class Car {
 
 
 //constructors
+/** 
+* Default Constructor for Car initializes the object with arbitrary values.
+*/
 public Car(){
     model = "Chevrolet";
     color = "Red";
-    cost = 17000.00;
+    cost = 17000.25;
     carType = "Muscle";
     hasTowingPackage = true;
 }
